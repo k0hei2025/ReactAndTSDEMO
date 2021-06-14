@@ -1,26 +1,25 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React,{useState} from 'react'
+import ItemList from './Component/ItemsList'
+import ADDItem from './Component/NewItem'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+const App: React.FC =()=>{
+
+  const [state , setState] = useState<{name : string}[]>([]);
+
+  const addNewHandler=(text : string)=>{
+    setState(prevTodos=>[ ...prevTodos ,  {name : text}]);
+   console.log(text)
+  
+  }
+  let toDoData = [{
+    name : addNewHandler
+ 
+  }]
+  return <div className="App">
+   <ADDItem addItem={addNewHandler} />
+   <ItemList items = {state} />
+    
+  </div>
 }
-
-export default App;
+export default App
