@@ -2,7 +2,6 @@ import React,{useState} from 'react'
 import ItemList from './Component/ItemsList'
 import ADDItem from './Component/NewItem'
 
-
 const App: React.FC =()=>{
 
   const [state , setState] = useState<{name : string}[]>([]);
